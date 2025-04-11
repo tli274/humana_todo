@@ -299,7 +299,8 @@ class TestLogin:
         login = { "username":"testuser", "password":"password123"}
         response = api_client.post(LOGIN_URL, login, format='json')
         assert response.status_code == 200
-        assert 'token' in response.data
+        assert response.data['access']
+        assert response.data['refresh']
         
     def test_login_wrong_username(self, api_client, test_user):
         login = { "username":"badusername", "password":"password123"}

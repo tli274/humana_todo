@@ -8,6 +8,7 @@ from rest_framework.authtoken.models import Token
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User, Group, Permission
 from django.contrib.auth import authenticate
+from rest_framework_simplejwt.tokens import RefreshToken
 
 from permissions import IsAdminOrReadOnly
 from .serializers import ToDoListSerializer, UserSerializer
@@ -106,5 +107,9 @@ class LoginView(APIView):
         token, created = Token.objects.get_or_create(user=user)
         
         role = 'admin' if user.groups.filter(name='admin').exists() else 'user'
-        
-        return Response({"token": token.key}, status=status.HTTP_200_OK)
+      
+        refresh = RefreshToken.for_user(user)  
+        return Response({
+            'access': str(refresh.access_token),
+            'refresh': str(refresh),
+        }, status=status.HTTP_200_OK)
