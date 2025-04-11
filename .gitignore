@@ -1,0 +1,67 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.db
+*.sqlite3
+*.env
+.env.*
+
+# If you're using pipenv or poetry
+Pipfile.lock
+poetry.lock
+
+# If you're using virtualenv:
+venv/
+env/
+ENV/
+.venv/
+.virtualenv/
+
+# Pytest
+.pytest_cache/
+
+# Coverage reports
+htmlcov/
+.coverage
+
+# Migrations (optional if auto-generated)
+*/migrations/__pycache__/
+*.mo
+
+# VS Code / PyCharm / JetBrains
+.vscode/
+.idea/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Build / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Git
+*.orig
+
+# Other
+*.bak
+*.swp

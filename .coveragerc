@@ -1,0 +1,5 @@
+[run]
+omit = 
+    humana_project/asgi.py
+    humana_project/wsgi.py
+    manage.py
