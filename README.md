@@ -20,6 +20,7 @@ This is a simple Django REST API for managing to-do items. The API supports user
 python -m -venv venv
 pip install -r requirements.tx
 pip manage.py migrate
+python manage.py create_groups
 python manage.py runserver
 
 # Run Test

@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 from .models import ToDoList
 
@@ -15,7 +15,12 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'password']
     
     def create(self, validated_data):
+        role = validated_data.pop('role', 'user')
         user = User(username = validated_data['username'])
         user.set_password(validated_data['password'])
         user.save()
+        
+        user_group = Group.objects.get(name=role)
+        user.groups.add(user_group)
+        
         return user
