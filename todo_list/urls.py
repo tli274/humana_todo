@@ -2,11 +2,10 @@ from . import views
 from django.conf import settings
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import LoginView, ToDoListViewSet, ToDoListView, ToDoDetailView, RegisterView
+from .views import LoginView, ToDoListView, ToDoDetailView, RegisterView
 from rest_framework.authtoken.views import obtain_auth_token
 
 router = DefaultRouter()
-router.register(r'todos', ToDoListViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

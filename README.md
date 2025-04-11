@@ -17,11 +17,12 @@ This is a simple Django REST API for managing to-do items. The API supports user
 - Django Debug Toolbar
 
 # Installation (Make sure venv is activated)
-python -m -venv venv
-pip install -r requirements.tx
-pip manage.py migrate
-python manage.py create_groups
-python manage.py runserver
+- python -m venv venv
+- (activate venv)
+- pip install -r requirements.txt
+- python manage.py migrate
+- python manage.py create_groups
+- python manage.py runserver
 
 # Run Test
 pytest

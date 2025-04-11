@@ -17,16 +17,6 @@ from .models import ToDoList
 admin, _ = Group.objects.get_or_create(name='admin')
 user, _ = Group.objects.get_or_create(name='user')
 
-class ToDoListViewSet(viewsets.ModelViewSet):
-    queryset = ToDoList.objects.all()
-    serializer_class = ToDoListSerializer
-    permission_classes = [IsAuthenticated]
-    
-    def get_queryset(self):
-        return ToDoList.objects.filter(user=self.request.user)
-
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
     
 class ToDoListView(APIView):
     permission_classes = [IsAuthenticated, IsAdminOrReadOnly]
